@@ -18,30 +18,25 @@ class Stack:
     def __init__(self):
         # Hint: A Python list can be used to store stack values.
         self.items = []
-        pass
 
     def push(self, value):
         # this value is the new top in LIFO as it's added to the end
         self.items.append(value)
-        pass
 
     def pop(self):
         # What should happen if the stack is empty? If the stack is empty, an IndexError will be raised if there is no self.is_empty() check. For this, it will return the error message
         if self.is_empty():
             return "Error: Cannot pop from empty stack"
         return self.items.pop()
-        pass
 
     def peek(self):
         # peek return the top item of the stack without removing it - the stack doesn't change
         if self.is_empty():
             return "Error: empty stack - cannot peek"
         return self.items[-1] # the -1 index accesses the last item in a Python list (top of stack) without editing the list
-        pass
 
     def is_empty(self):
         return len(self.items) == 0
-        pass
 
 
 class Queue:
