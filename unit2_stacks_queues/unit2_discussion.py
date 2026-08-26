@@ -47,14 +47,13 @@ class Queue:
     def enqueue(self, value):
         # adding to the back of the queue = earlier arrivals leave first, which is FIFO
         self.items.append(value)
-        pass
 
     def dequeue(self):
         # Explain or improve empty-queue handling - Error message returned instead of raising an IndexError as there is no front value to remove
         if self.is_empty():
             return "Error: Empty queue - Cannot deque"
         return self.items.popleft()
-        pass
+
 
     def front(self):
         # TODO (Student): Return the front value without removing it.
@@ -62,11 +61,11 @@ class Queue:
         if self.is_empty():
             return "Error: Cannot view from of empty queue"
         return self.items[0]
-        pass
+
 
     def is_empty(self):
         return len(self.items) == 0
-        pass
+
 
 
 def main():
