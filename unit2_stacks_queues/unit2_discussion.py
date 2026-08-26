@@ -12,7 +12,6 @@ explaining key concepts through comments and improved output.
 """
 from collections import deque
 
-
 class Stack:
     def __init__(self):
         # Hint: A Python list can be used to store stack values.
