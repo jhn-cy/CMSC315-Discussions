@@ -42,8 +42,7 @@ class Stack:
 class Queue:
     def __init__(self):
         # Hint: collections.deque is useful for efficient queue operations.
-        self.items = deque() # internal data structure 
-        pass
+        self.items = deque() # internal data structure
 
     def enqueue(self, value):
         # adding to the back of the queue = earlier arrivals leave first, which is FIFO
