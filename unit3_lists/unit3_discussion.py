@@ -22,7 +22,8 @@ def insert_at(lst, index, value):
     - Use comments to explain how insertion performance may vary depending on
       where the insertion occurs.
     """
-    pass
+    # after an insertion occurs, existing elements (at the inserted index and to the right) are shifted one position to the right
+    lst.insert(index, value) # insertion performance depends on where the insertion is (beginning is slower as more elements need to shift)
 
 
 def delete_at(lst, index):
