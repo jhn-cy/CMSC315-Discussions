@@ -79,8 +79,14 @@ def main():
 
     print("\n=== INSERTION TESTS ===")
     print("TODO: Create a list and demonstrate insertions.")
-    student_courses = [115, 215, 315]
+    student_courses = [115, 215, 315] # creates a list of student course numbers
     print("Original List: ",student_courses)
+    insert_at(student_courses, 0, 410) # inserts at beginning (list shifts right)
+    print("After inserting 410 at beginning: ", student_courses)
+    insert_at(student_courses, 1, 600) # Insert in middle, items 2 and 3 shift right
+    print("After inserting 600 in middle: ",student_courses)
+    insert_at(student_courses, 2, 310) # inserts at end (no items shift)
+    print("After inserting 310 at end: ", student_courses)
 
     # ===============================
     # TODO (Student): DELETION TESTS
