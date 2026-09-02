@@ -161,7 +161,20 @@ def main():
 
     print("\n=== EDGE CASES ===")
     print("TODO: Demonstrate at least two edge cases.")
+    invalid = delete_at(student_courses, -1)
+    invalid2 = delete_at(student_courses, 300)
+    print("Delete at index -1 and 300 (invalid)?: ", invalid, invalid2)
+    print("Current List:", student_courses)
 
+    empty_list = []
+    insert_at(empty_list, 0, "Inserting into empty list works")
+    print("After inserting into an empty list:", empty_list)
+
+    empty_delete = delete_at([], 0)
+    print("Attempt to delete from empty list: ", empty_delete)
+
+    search_and_destroy = search_value([], "Item")
+    print("Search for missing value:", search_and_destroy)
 
 
 if __name__ == "__main__":
