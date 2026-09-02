@@ -79,6 +79,8 @@ def main():
 
     print("\n=== INSERTION TESTS ===")
     print("TODO: Create a list and demonstrate insertions.")
+    student_courses = [115, 215, 315]
+    print("Original List: ",student_courses)
 
     # ===============================
     # TODO (Student): DELETION TESTS
