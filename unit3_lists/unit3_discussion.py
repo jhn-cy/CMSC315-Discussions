@@ -39,8 +39,8 @@ def delete_at(lst, index):
     """
     # validates the index before removing - preventing IndexError with invalid indexes / empty lists
     if 0 <= index < len(list):
-        return lst.pop(index)
-    return None
+        return lst.pop(index) # return removed value
+    return None # if index is invalid
 
 
 def search_value(lst, value):
@@ -53,7 +53,11 @@ def search_value(lst, value):
     - Return -1 if the value is not found.
     - Add comments explaining why this is a linear search and why it scans sequentially.
     """
-    pass
+    # Python checks items one at a time (linear search) from the first to the last (sequentially)
+    for index in range(len(lst)):
+        if lst[index] == value:
+            return index # if value is found
+    return -1 # if value is not found
 
 
 def main():
