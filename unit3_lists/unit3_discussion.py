@@ -38,7 +38,7 @@ def delete_at(lst, index):
     - Add comments explaining why index validation and safe deletion are important.
     """
     # validates the index before removing - preventing IndexError with invalid indexes / empty lists
-    if 0 <= index < len(list):
+    if 0 <= index < len(lst):
         return lst.pop(index) # return removed value
     return None # if index is invalid
 
@@ -79,13 +79,13 @@ def main():
 
     print("\n=== INSERTION TESTS ===")
     print("TODO: Create a list and demonstrate insertions.")
-    student_courses = [115, 215, 315] # creates a list of student course numbers
+    student_courses = [115, 215, 315] # creates a list of student course numbers. 3 items in list
     print("Original List: ",student_courses)
-    insert_at(student_courses, 0, 410) # inserts at beginning (list shifts right)
+    insert_at(student_courses, 0, 410) # inserts at beginning (list shifts right). 4 items in list
     print("After inserting 410 at beginning: ", student_courses)
-    insert_at(student_courses, 1, 600) # Insert in middle, items 2 and 3 shift right
+    insert_at(student_courses, 2, 600) # Insert in middle, all items from insertion (2) to the right shift right. 5 items in list
     print("After inserting 600 in middle: ",student_courses)
-    insert_at(student_courses, 2, 310) # inserts at end (no items shift)
+    insert_at(student_courses, 5, 310) # inserts at end (no items shift). 6 items in list
     print("After inserting 310 at end: ", student_courses)
 
     # ===============================
@@ -103,6 +103,19 @@ def main():
 
     print("\n=== DELETION TESTS ===")
     print("TODO: Demonstrate deletions from multiple positions.")
+    print("Current List:", student_courses) # current list
+    remove_beginning = delete_at(student_courses, 0) # remove the first item (all values shift left)
+    print("Remove from beginning: ", remove_beginning)
+    print("Changed List:", student_courses)
+
+    middle_index = len(student_courses) // 2 # remove the middle item (all values to the right shift left)
+    remove_middle = delete_at(student_courses, middle_index)
+    print("Remove from the middle: ", remove_middle)
+    print("Changed List: ", student_courses)
+
+    remove_end = delete_at(student_courses, len(student_courses) - 1) # remove the final item. No items shift
+    print("Removed from the end:", remove_end)
+    print("Changed List:", student_courses)
 
     # ===============================
     # TODO (Student): SEARCH TESTS
