@@ -7,6 +7,7 @@ INSTRUCTIONS:
 This assignment focuses on understanding how lists behave when elements
 are inserted, removed, and searched. You will analyze how Python lists
 shift elements in memory and how different operations impact performance.
+DONE?
 """
 
 
@@ -129,9 +130,9 @@ def main():
 
     print("\n=== SEARCH TESTS ===")
     print("TODO: Demonstrate searching for values.")
-    print("Current List:", student_courses)
+    print("Current List:", student_courses) # show current list for reference
     # searching for course in the list
-    existing_course = 315
+    existing_course = 315 # 315 does exist
     existing_result = search_value(student_courses, existing_course)
     if existing_result != -1:
         print(f"Student Course {existing_course} found at index {existing_result}.")
@@ -139,7 +140,7 @@ def main():
         print(f"Student Course {existing_course} not found.")
 
     # searching for course not in the list
-    missing_course = 0
+    missing_course = 0 # there is no 0 course
     missing_result = search_value(student_courses, missing_course)
     if missing_result != -1:
         print(f"Student Course {missing_course} was found at index {missing_result}.")
@@ -151,7 +152,6 @@ def main():
     # ===============================
     #
     # Demonstrate at least two edge cases.
-    #
     # Example ideas:
     # - Delete using an invalid index
     # - Search for a missing value
@@ -161,20 +161,21 @@ def main():
 
     print("\n=== EDGE CASES ===")
     print("TODO: Demonstrate at least two edge cases.")
+
     invalid = delete_at(student_courses, -1)
     invalid2 = delete_at(student_courses, 300)
-    print("Delete at index -1 and 300 (invalid)?: ", invalid, invalid2)
-    print("Current List:", student_courses)
+    print("Delete at index -1 and 300 (invalid)?: ", invalid, invalid2) # attempt to delete at two invalid indexes. "None" returned instead of an error.
+    print("Current List:", student_courses) # show the list for reference
 
-    empty_list = []
-    insert_at(empty_list, 0, "Inserting into empty list works")
-    print("After inserting into an empty list:", empty_list)
+    search_missing = search_value([], "Missing Value")
+    print("Search for missing value:", search_missing) # returns -1 as the item is not found
 
-    empty_delete = delete_at([], 0)
-    print("Attempt to delete from empty list: ", empty_delete)
+    empty_list = [] # create empty list
+    insert_at(empty_list, 0, "Inserting into empty list works") # creates first item in list
+    print("After inserting into an empty list:", empty_list) # shows the "Empty" list with the inserted value
 
-    search_and_destroy = search_value([], "Item")
-    print("Search for missing value:", search_and_destroy)
+    empty_delete = delete_at([], 0) # delete from empty list
+    print("Attempt to delete from empty list: ", empty_delete) # invalid and returns "None"
 
 
 if __name__ == "__main__":
