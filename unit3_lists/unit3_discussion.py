@@ -129,6 +129,22 @@ def main():
 
     print("\n=== SEARCH TESTS ===")
     print("TODO: Demonstrate searching for values.")
+    print("Current List:", student_courses)
+    # searching for course in the list
+    existing_course = 315
+    existing_result = search_value(student_courses, existing_course)
+    if existing_result != -1:
+        print(f"Student Course {existing_course} found at index {existing_result}.")
+    else:
+        print(f"Student Course {existing_course} not found.")
+
+    # searching for course not in the list
+    missing_course = 0
+    missing_result = search_value(student_courses, missing_course)
+    if missing_result != -1:
+        print(f"Student Course {missing_course} was found at index {missing_result}.")
+    else:
+        print(f"Student ID {missing_course} not found.")
 
     # ===============================
     # TODO (Student): EDGE CASES
