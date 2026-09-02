@@ -37,7 +37,10 @@ def delete_at(lst, index):
     - Return None if the index is invalid.
     - Add comments explaining why index validation and safe deletion are important.
     """
-    pass
+    # validates the index before removing - preventing IndexError with invalid indexes / empty lists
+    if 0 <= index < len(list):
+        return lst.pop(index)
+    return None
 
 
 def search_value(lst, value):
