@@ -26,7 +26,7 @@ class BST:
     def __init__(self):
         # TODO (Student):
         # Initialize an empty Binary Search Tree.
-        self.root = None
+        self.root = None  # empty BST
 
     def insert(self, value):
         """
@@ -39,6 +39,8 @@ class BST:
           whether a value is smaller or larger than the
           current node.
         """
+        # smaller goes left and larger goes right, allowing a search
+        # to get rid of half a tree
         self.root = self._insert_recursive(self.root, value)
 
     def _insert_recursive(self, node, value):
@@ -55,9 +57,9 @@ class BST:
         if node is None:
             return Node(value)
 
-        if value < node.value:
+        if value < node.value:  # smaller nodes placed left
             node.left = self._insert_recursive(node.left, value)
-        elif value > node.value:
+        elif value > node.value:  # larger nodes placed right
             node.right = self._insert_recursive(node.right, value)
         return node
 
@@ -72,6 +74,9 @@ class BST:
         - Add comments explaining why BST search is often
           more efficient than linear search.
         """
+        # BST is more efficient as comparison allows us to eliminate a large
+        # chunk of options via continuing left or right instead of checking
+        # every value
         return self._search_recursive(self.root, value)
 
     def _search_recursive(self, node, value):
@@ -79,12 +84,16 @@ class BST:
         TODO (Student):
         Implement recursive BST search.
         """
+        # if empty - value is not present
         if node is None:
             return False
+        # value found at current node
         if value == node.value:
             return True
+        # smaller value placed left
         if value < node.value:
             return self._search_recursive(node.left, value)
+        # larger value is placed in the right
         return self._search_recursive(node.right, value)
 
     def inorder(self):
@@ -109,6 +118,12 @@ class BST:
         - Add comments explaining why this traversal
           produces sorted output in a BST.
         """
+        # the output is sorted based on node size
+        # every smaller value is left and every larger
+        # is right. The left subtree is all smaller than current
+        # node and the right subtree is all larger
+
+        # smaller values first, larger last
         if node is not None:
             self._inorder_recursive(node.left, values)
             values.append(node.value)
@@ -138,6 +153,9 @@ def main():
 
     print("Values inserted:", values_to_insert)
 
+    # search space is reduced as there's no need to search
+    # branches where the value wouldn't be. A smaller value
+    # does not need to search right and larger not left.
     for value in values_to_insert:
         tree.insert(value)
 
@@ -153,6 +171,8 @@ def main():
 
     print("\n=== IN-ORDER TRAVERSAL ===")
     print("TODO: Display and explain traversal results.")
+    # the first value is root and everything after gets sorted
+    # sorted output is: left = smaller and right = bigger
     sorted_values = tree.inorder()
     print("in-order traversal:", sorted_values)
 
@@ -168,6 +188,9 @@ def main():
     print("\n=== SEARCH TESTS ===")
     print("TODO: Demonstrate BST searching.")
     search_values = [30, 50, 70, 105, 15, 1]
+    # searching for 70 would go right as 70 > 30 and 70 would be returned
+    # searching for 80 would go right but return not found as it does not exist
+    # searching for 15 would go left as 15 < 30 and 30 would be returned
     for value in search_values:
         if tree.search(value):
             print(f"Search for {value}: Found")
