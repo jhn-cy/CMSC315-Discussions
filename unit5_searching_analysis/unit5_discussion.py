@@ -82,6 +82,20 @@ def main():
 
     print("\n=== SMALL DATASET TEST ===")
     print("TODO: Create a small dataset and test both searches.")
+    small_dataset = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21]
+    existing = 7
+    non_existing = 6
+    print("dataset:", small_dataset)
+
+    # should return index 3
+    print("Searching for a value that exists:", existing)
+    print("Linear search test:", linear_search(small_dataset, existing))
+    print("Binary search test:", binary_search(small_dataset, existing))
+
+    # should return -1
+    print("Searching for a value that doesn't exist:", non_existing)
+    print("Linear search test:", linear_search(small_dataset, non_existing))
+    print("Binary search test:", binary_search(small_dataset, non_existing))
 
     # ===============================
     # TODO (Student): LARGE DATASET
@@ -96,7 +110,21 @@ def main():
 
     print("\n=== LARGE DATASET TEST ===")
     print("TODO: Create a larger dataset and compare results.")
+    # creates sorted list from 0 through 2999999
+    large_dataset = list(range(3000000))
 
+    # BST are more efficient as datasets grow larger because it cuts remaining range in half
+    # with target values being in the beginning, it might not matter much, but if the target is at the end,
+    # it would significantly cut down on search time as the dataset gets larget as it doesn not need to search each entry
+    large_existing = 299
+    large_non = 30000001
+    print("Searching for a value that exists:", large_existing)
+    print("Linear search test:", linear_search(large_dataset, large_existing))
+    print("Binary search test:", binary_search(large_dataset, large_existing))
+
+    print("Searching for a value that doesn't exist:", large_non)
+    print("Linear search test:", linear_search(large_dataset, large_non))
+    print("Binary search test:", binary_search(large_dataset, large_non))
     # ===============================
     # TODO (Student): EDGE CASES
     # ===============================
@@ -118,4 +146,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
