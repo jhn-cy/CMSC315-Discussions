@@ -26,7 +26,12 @@ def linear_search(lst, target):
     - Add comments explaining why linear search
       has O(n) time complexity.
     """
-    pass
+    # linear search checks every item in the list once in the worst case,
+    # so time complexity is 0(n), where n is the list length
+    for index in range(len(lst)):
+        if lst[index] == target:
+            return index
+    return -1
 
 
 def binary_search(lst, target):
@@ -42,7 +47,22 @@ def binary_search(lst, target):
     - Add comments explaining how each iteration
       reduces the search space.
     """
-    pass
+    left = 0
+    right = len(lst) - 1
+
+    while left <= right:
+        middle = (left + right) // 2
+        if lst[middle] == target:
+            return middle
+        elif lst[middle] < target:
+            left = middle + 1
+            # the target can only be to the right of middle
+            # removes the left half of the remaining search space
+        else:
+            right = middle - 1
+            # the target can only be to the left of middle
+            # removes the right half of the remaining search space
+    return -1
 
 
 def main():
@@ -98,3 +118,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
