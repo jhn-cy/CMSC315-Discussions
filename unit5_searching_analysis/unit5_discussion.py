@@ -125,6 +125,7 @@ def main():
     print("Searching for a value that doesn't exist:", large_non)
     print("Linear search test:", linear_search(large_dataset, large_non))
     print("Binary search test:", binary_search(large_dataset, large_non))
+
     # ===============================
     # TODO (Student): EDGE CASES
     # ===============================
@@ -142,6 +143,25 @@ def main():
 
     print("\n=== EDGE CASE TESTS ===")
     print("TODO: Demonstrate and explain edge cases.")
+    # edge case 1: a one-item list
+    # searching for the only item in the list will return index 0 as it is the only item
+    one_item_list = [3]
+    print("One item list:", one_item_list)
+    print("Linear search:", linear_search(one_item_list, 3))
+    print("Binar search:", binary_search(one_item_list, 3))
+
+    # edge case 2: a value at the last position
+    # the search will return the last index
+    print("Dataset we are searching:", small_dataset)
+    print("Linear search for 21:", linear_search(small_dataset, 21))
+    print("Binar search for 21:", binary_search(small_dataset, 21))
+
+    # edge case 3: an empty list
+    # the search will return a -1 as there is nothing in the list to search
+    empty_list = []
+    print("Empty list:", empty_list)
+    print("Linear search for 7 in an empty list:", linear_search(empty_list, 7))
+    print("Binar search for 7 in an empty list:", binary_search(empty_list, 7))
 
 
 if __name__ == "__main__":
