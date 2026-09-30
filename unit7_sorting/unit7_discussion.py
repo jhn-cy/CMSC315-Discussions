@@ -28,7 +28,22 @@ def bubble_sort(lst):
     - Add meaningful comments.
 
     """
-    pass
+    # copy the list so original data is not changed
+    sorted_list = lst.copy()
+    # each pass moves the largest remaining value to the end
+    for end in range(len(sorted_list) - 1, 0, -1):
+        swapped = False
+        # compare adjacent values in unsorted portion
+        for index in range(end):
+            if sorted_list[index] > sorted_list[index + 1]:
+                sorted_list[index], sorted_list[index + 1] = (
+                    sorted_list[index + 1],
+                    sorted_list[index],
+                )
+                swapped = True
+        if not swapped:
+            break
+    return sorted_list
 
 
 def merge_sort(lst):
@@ -112,7 +127,6 @@ def main():
     print("TODO: Demonstrate and explain edge cases.")
 
 
-
-
 if __name__ == "__main__":
     main()
+
