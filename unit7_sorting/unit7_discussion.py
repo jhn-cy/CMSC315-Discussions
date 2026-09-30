@@ -122,6 +122,12 @@ def main():
 
     print("\n=== DATASET #1 ===")
     print("TODO: Create an unsorted dataset and test both sorting algorithms.")
+    ds_1 = [17, -7, 3, 0, 23, 21, 14, 7, 12]
+    bubble_1 = bubble_sort(ds_1)
+    merge_1 = merge_sort(ds_1)
+    print("Original list: ", ds_1)
+    print("Bubble sort: ", bubble_1)
+    print("Merge sort: ", merge_1)
 
     # ===============================
     # TODO (Student): DATASET #2
@@ -135,6 +141,12 @@ def main():
 
     print("\n=== DATASET #2 ===")
     print("TODO: Create a second dataset and compare sorting results.")
+    ds_2 = [11, -3, 2, 1, 33, 24, 13, 9, 21]
+    bubble_2 = bubble_sort(ds_2)
+    merge_2 = merge_sort(ds_2)
+    print("Original list: ", ds_2)
+    print("Bubble sort: ", bubble_2)
+    print("Merge sort: ", merge_2)
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -153,6 +165,25 @@ def main():
 
     print("\n=== EDGE CASE TESTS ===")
     print("TODO: Demonstrate and explain edge cases.")
+
+    # no values - already sorted
+    empty_list = []
+    print("Original list: ", empty_list)
+    print("Bubble sort: ", bubble_sort(empty_list))
+    print("Merge sort: ", merge_sort(empty_list))
+
+    # both algorithms return the same order.
+    # bubble sort stops early due to no swaps
+    already_sorted = [1, 3, 5, 7, 9, 11, 13]
+    print("Original list: ", already_sorted)
+    print("Bubble sort: ", bubble_sort(already_sorted))
+    print("Merge sort: ", merge_sort(already_sorted))
+
+    # repeated values are kept and sorted
+    duplicate = [3, 2, 1, 1, 2, 3]
+    print("Original list: ", duplicate)
+    print("Bubble sort: ", bubble_sort(duplicate))
+    print("Merge sort: ", merge_sort(duplicate))
 
 
 if __name__ == "__main__":
