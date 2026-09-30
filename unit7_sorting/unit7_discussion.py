@@ -41,6 +41,7 @@ def bubble_sort(lst):
                     sorted_list[index],
                 )
                 swapped = True
+        # stop early if no swaps occurred
         if not swapped:
             break
     return sorted_list
@@ -60,7 +61,18 @@ def merge_sort(lst):
     - Add meaningful comments.
 
     """
-    pass
+    # lists with 0 or 1 item are already sorted
+    if len(lst) <= 1:
+        return lst.copy()
+    # divide list into smaller halves
+    middle = len(lst) // 2
+    right_half = lst[:middle]
+    left_half = lst[middle:]
+
+    # recursively sort both halves with merged results after
+    sorted_left = merge_sort(left_half)
+    sorted_right = merge_sort(right_half)
+    return merge(sorted_left, sorted_right)
 
 
 def merge(left, right):
@@ -75,7 +87,23 @@ def merge(left, right):
     - Return the merged sorted list.
     - Add meaningful comments.
     """
-    pass
+    result = []
+    left_index = 0
+    right_index = 0
+
+    # add smaller next value from the two sorted lists
+    while left_index < len(left) and right_index < len(right):
+        if left[left_index] <= right[right_index]:
+            result.append(left[left_index])
+            left_index += 1
+        else:
+            result.append(right[right_index])
+            right_index += 1
+    # append remaining values
+    result.extend(left[left_index:])
+    result.extend(right[right_index:])
+
+    return result
 
 
 def main():
