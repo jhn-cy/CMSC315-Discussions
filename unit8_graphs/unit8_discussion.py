@@ -32,8 +32,23 @@ def bfs(graph, start):
     - Why neighbors are added to the queue.
     - How BFS differs from depth-first traversal.
     """
+    if start not in graph:
+        return []
+    visited = {start}
+    order = []
+    queue = deque([start])
 
-    pass
+    while queue:
+        current = queue.popleft()
+        order.append(current)
+        # a queue is used because it processes nodes in the order they were added
+        # BFS visits all nodes at one level before the next
+        for neighbor in graph[current]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+
+    return order
 
 
 def main():
@@ -50,8 +65,21 @@ def main():
     # 4. Clearly display the graph structure.
     # 5. Use comments to explain what the nodes and edges represent.
 
+    # each node - a place in a small neighboorhood
+    # each edge - a road between two nodes
+
     print("\n=== GRAPH STRUCTURE ===")
     print("TODO: Create and display a graph.")
+    graph = {
+        "Home": ["School", "Pool"],
+        "School": ["Home", "Library", "Park"],
+        "Pool": ["Home", "Park"],
+        "Library": ["School", "Disco"],
+        "Park": ["School", "Pool"],
+        "Disco": ["Library"],
+    }
+    for node, neighbors in graph.items():
+        print(f"{node}: {neighbors}")
 
     # ===============================
     # TODO (Student): BFS TRAVERSAL
@@ -67,6 +95,18 @@ def main():
 
     print("\n=== BFS TRAVERSAL ===")
     print("TODO: Perform and explain BFS traversal.")
+    # BFS visits Home then it's neighbors then nodes farther away
+    start = "Home"
+    print(f"Starting at {start}: {bfs(graph, start)}")
+    # add one additional node or edge
+    graph["Funeral"] = ["Park"]
+    graph["Disco"].append("Funeral")
+
+    # demonstrate updated traversal
+    print("Graph after adding Funeral:")
+    for node, neighbors in graph.items():
+        print(f"{node}: {neighbors}")
+    print(f"Updated traversal from {start}: {bfs(graph, start)}")
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -85,8 +125,12 @@ def main():
 
     print("\n=== EDGE CASE TESTS ===")
     print("TODO: Demonstrate and explain edge cases.")
-
+    # starting from a different node - changes traversal's starting point
+    print(f"Starting at Library: {bfs(graph, 'Library')}")
+    # handle a missing start node safely - return an empty list
+    print(f"Missing node: {bfs(graph, 'Party')}")
 
 
 if __name__ == "__main__":
     main()
+
